@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Galaxy Blendの宇宙学会に参加しませんか？企業間のネットワーキングと宇宙技術の共有">
+        <title>宇宙学会へ参加 | Galaxy Blend</title>
+        <link rel="icon" href="earth/favicon.ico">
+        <link rel="stylesheet" href="join.css">
+        <style>
+            .easter-egg-glow {
+                animation: easterGlow 0.5s ease-in-out;
+                box-shadow: 0 0 30px rgba(0, 255, 242, 0.8) !important;
+            }
+            
+            @keyframes easterGlow {
+                0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 242, 0.3); }
+                50% { box-shadow: 0 0 40px rgba(0, 255, 242, 1); }
+            }
+            
+            .warp-effect {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: radial-gradient(circle, rgba(0,255,242,0.3), transparent);
+                pointer-events: none;
+                z-index: 9999;
+                animation: warpOut 1.5s ease-in forwards;
+            }
+            
+            @keyframes warpOut {
+                0% { transform: scale(0); opacity: 0; }
+                50% { transform: scale(1); opacity: 1; }
+                100% { transform: scale(3); opacity: 0; }
+            }
+            
+            .secret-detected {
+                display: none;
+                margin-top: 15px;
+                padding: 20px;
+                background: linear-gradient(135deg, rgba(0, 255, 242, 0.2), rgba(255, 0, 255, 0.2));
+                border: 2px solid rgba(0, 255, 242, 0.5);
+                border-radius: 12px;
+                text-align: center;
+                font-size: 18px;
+                color: #00fff2;
+                animation: pulseGlow 1s ease-in-out infinite;
+            }
+            
+            @keyframes pulseGlow {
+                0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 242, 0.3); }
+                50% { box-shadow: 0 0 40px rgba(0, 255, 242, 0.8); }
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="starfield" aria-hidden="true"></canvas>
+        
+        <header>
+            <div class="container flex pop">
+                <a href="top.html" class="logo">
+                    <span>Galaxy</span> Blend
+                </a>
+                <nav>
+                    <ul class="header_menu flex">
+                        <li><a href="top.html#concept">Concept</a></li>
+                        <li><a href="top.html#service">Service</a></li>
+                        <li><a href="top.html">Home</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <section class="container">
+                <div class="join-container fadein">
+                    <h1>🌌 宇宙学会へようこそ</h1>
+                    <p>つながりを求める、あなたの参加をお待ちしています</p>
+
+                    <form id="joinForm">
+
+                        <div class="form-group">
+                            <label for="name">氏名</label>
+                            <input type="text" id="name" name="name" required placeholder="例：山田太郎">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">電話番号</label>
+                            <input type="tel" id="phone" name="phone" placeholder="09012345678">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">企業・組織名</label>
+                            <input type="text" id="company" name="company" placeholder="例：〇〇株式会社">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>興味のある分野（複数選択可）</label>
+                            <div class="interest-items">
+                                <label class="checkbox-group">
+                                    <input type="checkbox" name="interest" value="business">
+                                    ビジネス交流
+                                </label>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" name="interest" value="health">
+                                    宇宙技術
+                                </label>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" name="interest" value="networking">
+                                    宇宙の学び
+                                </label>
+                                <label class="checkbox-group">
+                                    <input type="checkbox" name="interest" value="innovation">
+                                    宇宙プロジェクト
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">メッセージ（参加理由、ご質問など）</label>
+                            <textarea id="message" name="message" placeholder="宇宙学会への参加理由や期待することをお聞かせください...&#x0a;&#x0a;💡 ヒント: 特別なキーワードを入力すると...？"></textarea>
+                            <div class="secret-detected" id="secretDetected">
+                                🚀 特別なキーワードを検出しました！<br>
+                                ワープを開始します...
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-group">
+                                <input type="checkbox" id="agreement" name="agreement" required>
+                                利用規約に同意します
+                            </label>
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="submit-btn">参加登録</button>
+                        </div>
+                    </form>
+
+                    <div class="success-message" id="successMessage">
+                        ✨ ご登録ありがとうございました！<br>
+                        確認メールをお送りいたします。
+                    </div>
+
+                    <div class="back-link">
+                        <a href="top.html">← ホームに戻る</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="container flex pop">
+                <p>お問い合わせ： <a href="mailto:info@galaxyblend.com">info@galaxyblend.com</a></p>
+            </div>
+        </footer>
+
+        <script src="top.js"></script>
+        <script>
+            const messageInput = document.getElementById('message');
+            const secretDetected = document.getElementById('secretDetected');
+
+            // メッセージ入力時のリアルタイムチェック
+            messageInput.addEventListener('input', function() {
+                const text = this.value.toLowerCase().trim();
+                
+                // 「火星」キーワードチェック
+                if (text.includes('火星')) {
+                    // キーワード検出時のエフェクト
+                    messageInput.classList.add('easter-egg-glow');
+                    secretDetected.style.display = 'block';
+                    
+                    // 1.5秒後にページ遷移
+                    setTimeout(() => {
+                        const warpDiv = document.createElement('div');
+                        warpDiv.className = 'warp-effect';
+                        document.body.appendChild(warpDiv);
+                        
+                        setTimeout(() => {
+                            window.location.href = 'god.html';
+                        }, 800);
+                    }, 1500);
+                } else {
+                    messageInput.classList.remove('easter-egg-glow');
+                    secretDetected.style.display = 'none';
+                }
+            });
+
+            // 通常のフォーム送信処理
+            document.getElementById('joinForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const text = messageInput.value.toLowerCase().trim();
+                
+                // 送信時にもう一度キーワードチェック
+                if (text.includes('火星')) {
+                    return; // すでに検出済みの場合はそのまま
+                }
+
+                // 通常の送信処理
+                document.getElementById('joinForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            });
+
+            // リセットボタン
+            document.querySelector('.reset-btn').addEventListener('click', function() {
+                secretDetected.style.display = 'none';
+                messageInput.classList.remove('easter-egg-glow');
+            });
+        </script>
+    </body>
+</html>

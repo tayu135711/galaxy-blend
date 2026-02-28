@@ -1,0 +1,333 @@
+@charset "UTF-8";
+
+/* ========== Base Styles ========== */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #fff;
+    cursor: none;
+    background: #000;
+}
+
+.container {
+    width: 90%;
+    max-width: 1120px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ========== Header & Navigation ========== */
+header {
+    padding: 27px 0;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo span {
+    color: #90c14f;
+}
+
+.header_menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header_menu li {
+    margin-left: 40px;
+}
+
+.header_menu li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.header_menu li a:hover {
+    color: yellowgreen;
+}
+
+/* ========== Starfield & Canvas ========== */
+#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+    display: block;
+    opacity: 0.6;
+}
+
+/* ========== Fade-in Animation ========== */
+.fadein {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.fadein.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========== Join Form Container ========== */
+.join-container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: rgba(138, 180, 213, 0.08);
+    padding: 50px;
+    border: 1px solid rgba(138, 180, 213, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 1;
+}
+
+.join-container h1 {
+    font-size: 36px;
+    letter-spacing: 2px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+.join-container > p {
+    text-align: center;
+    color: #b8b8c8;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* ========== Form Elements ========== */
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #a8c5e0;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(15, 17, 32, 0.8);
+    border: 1px solid rgba(138, 180, 213, 0.3);
+    border-radius: 8px;
+    color: #e0e0f0;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: rgba(138, 180, 213, 0.6);
+    background: rgba(15, 17, 32, 0.95);
+    box-shadow: 0 0 15px rgba(138, 180, 213, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+}
+
+/* ========== Checkbox Styles ========== */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+    color: #a8c5e0;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #8ab4d5;
+}
+
+.interest-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+/* ========== Form Submit Buttons ========== */
+.form-submit {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.submit-btn {
+    padding: 15px 50px;
+    background: linear-gradient(135deg, #6b8dbf 0%, #9b7eca 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(138, 180, 213, 0.4);
+}
+
+.reset-btn {
+    padding: 15px 40px;
+    background: rgba(138, 180, 213, 0.1);
+    color: #8ab4d5;
+    border: 1px solid rgba(138, 180, 213, 0.4);
+    border-radius: 25px;
+    font-weight: 500;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: rgba(138, 180, 213, 0.15);
+    border-color: rgba(138, 180, 213, 0.6);
+}
+
+/* ========== Success Message ========== */
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    background: rgba(100, 200, 100, 0.1);
+    border: 1px solid rgba(100, 200, 100, 0.3);
+    border-radius: 10px;
+    color: #90d0a0;
+    font-size: 18px;
+}
+
+/* ========== Back Link ========== */
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-link a {
+    color: #b88be6;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-link a:hover {
+    color: #8ab4d5;
+    text-shadow: 0 0 10px rgba(138, 180, 213, 0.5);
+}
+
+/* ========== Footer ========== */
+footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 30px 0;
+}
+
+footer a {
+    color: #90c14f;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer a:hover {
+    color: yellowgreen;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 600px) {
+    .join-container {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    .interest-items {
+        grid-template-columns: 1fr;
+    }
+
+    .form-submit {
+        flex-direction: column;
+    }
+
+    .submit-btn,
+    .reset-btn {
+        width: 100%;
+    }
+
+    .header_menu li {
+        margin-left: 20px;
+    }
+}
+
+/* ========== Custom Star Cursor ========== */
+#star-cursor {
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    line-height: 1;
+    transition: transform 0.06s linear;
+}
+
+.star-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9998;
+    font-size: 16px;
+    opacity: 0.95;
+    transform: translate(-50%, -50%);
+    animation: star-fade 0.9s forwards;
+}
+
+@keyframes star-fade {
+    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -60%) scale(0.6); }
+}
+
+/* Keep custom star cursor visible even over interactive elements */
+button, .submit-btn, .reset-btn, input, textarea, select, a, label {
+    cursor: none !important;
+}
